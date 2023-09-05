@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
+        stage('excutable playbook') {
             steps {
-                checkout scm
+                ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/project-ansible/inventory', playbook: '/var/lib/jenkins/workspace/project-ansible/playbook.yaml'
             }
         }
         // stage('Deploy to Remote Server') {
@@ -17,10 +17,10 @@ pipeline {
         //         }
         //     }
         // }
-        stage('Ansible Playbook') {
-            steps {
-                sh 'ansible-playbook playbook.yaml'
-            }
-        }
+        // stage('Ansible Playbook') {
+        //     steps {
+        //         sh 'ansible-playbook playbook.yaml'
+        //     }
+        // }
     }
 }
