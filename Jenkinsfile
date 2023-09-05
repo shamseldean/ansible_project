@@ -11,7 +11,7 @@ pipeline {
                 script {
                     sshagent(credentials: ['b75b7baf-7b1f-4b16-98fe-d445003e4094']) {
                         sh """
-                            ssh ubuntu@18.117.105.151 'your-remote-command'
+                            ssh ubuntu@18.117.105.151 'ansible-playbook playbook.yaml'
                         """
                     }
                 }
