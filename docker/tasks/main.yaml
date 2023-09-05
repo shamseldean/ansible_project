@@ -44,15 +44,11 @@
     dest: /usr/local/bin/docker-compose
     mode: 'u+x,g+x'
 
-# # sudo groupadd docker
-# - name: Create "docker" group
-#   group:
-#     name: "{{ docker_group }}"
-#     state: present
+- name: add user mod
+  command: sudo usermod -aG docker ubuntu
 
-# # sudo usermod -aG docker root
-# - name: Add remote "ubuntu" user to "docker" group
-#   user:
-#     name: "{{ remote_user }}"
-#     group: "{{ docker_group }}"
-#     append: yes
+- name: Restart_Docker service
+  service:
+      name: docker
+      state: restarted
+
