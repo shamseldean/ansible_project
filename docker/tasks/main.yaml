@@ -52,3 +52,9 @@
       name: docker
       state: restarted
 
+- name: Add user to the docker group
+  user:
+    name: ubuntu
+    groups: docker
+    append: yes
+    become: yes
