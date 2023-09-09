@@ -47,8 +47,8 @@
 - name: add user mod
   command: sudo usermod -aG docker ubuntu
 
-- name: add user
-  command: sudo usermod -aG docker-compose ubuntu
+# - name: add user
+#   command: sudo usermod -aG docker-compose ubuntu
 
 - name: Restart_Docker service
   service:
