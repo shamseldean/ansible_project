@@ -65,4 +65,13 @@
   apt:
     name: "{{ packages }}"
     state: present
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install npm
+  apt:
+    name: npm
+    state: present
       
