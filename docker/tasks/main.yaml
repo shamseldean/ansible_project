@@ -74,4 +74,11 @@
   apt:
     name: npm
     state: present
-      
+    
+- name: Change to your Node.js project directory
+  become_user: ubuntu  # Replace with the user you're using
+  command: cd /home/ubuntu/jenkins/workspace/docker_project
+
+- name: Run npm install
+  become_user: ubuntu  # Replace with the user you're using
+  command: npm install      
